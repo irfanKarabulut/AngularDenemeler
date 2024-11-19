@@ -23,7 +23,10 @@ Todos:
       <td>|</td>
       <td>{{ item }}</td>
       <td>|</td>
-      <td><button (click)="delete($index)">Delete</button></td>
+      <td>
+        <button (click)="delete($index)">Delete</button>
+        <button (click)="select($index)">Update</button>
+      </td>
     </tr>
     }
   </tbody>

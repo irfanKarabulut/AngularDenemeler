@@ -13,13 +13,26 @@ export class AppComponent {
 
   todoItem: string = "";
   todoItems: string[] = [];
+  updateMode: boolean = false;
+  updateIndex: number = -1;
 
   save() {
-    this.todoItems.push(this.todoItem);
+    if (!this.updateMode) {
+      this.todoItems.push(this.todoItem);      
+    } else {
+      this.todoItems[this.updateIndex] = this.todoItem;
+      this.updateIndex = -1;
+    }
     this.todoItem = "";
   }
 
   delete(index: number) {
     this.todoItems.splice(index, 1);
+  }
+
+  select(index: number) {
+    this.todoItem = this.todoItems[index];
+    this.updateMode = true;
+    this.updateIndex = index;
   }
 }
