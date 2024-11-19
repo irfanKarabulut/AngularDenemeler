@@ -18,10 +18,11 @@ export class AppComponent {
 
   save() {
     if (!this.updateMode) {
-      this.todoItems.push(this.todoItem);      
+      this.todoItems.push(this.todoItem);
     } else {
       this.todoItems[this.updateIndex] = this.todoItem;
       this.updateIndex = -1;
+      this.updateMode = false;
     }
     this.todoItem = "";
   }
